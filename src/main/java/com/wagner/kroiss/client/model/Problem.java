@@ -4,15 +4,26 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class Problem {
 
     private Integer status;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
-    private OffsetDateTime timestamp;
+   private String timestamp;
 
     private String userMessage;
 
+
+    @Data
+    public static class Object {
+
+        private String name;
+        private String userMessage;
+
+    }
+
+    private List<Object> objects = new ArrayList<>();
 }
